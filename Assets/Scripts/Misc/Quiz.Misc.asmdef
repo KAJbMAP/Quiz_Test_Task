@@ -1,0 +1,17 @@
+{
+    "name": "Quiz_Misc",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d3f06d4548fac9f4586438bedd9ccb69",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

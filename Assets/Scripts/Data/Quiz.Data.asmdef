@@ -1,0 +1,18 @@
+{
+    "name": "Quiz.Data",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d3f06d4548fac9f4586438bedd9ccb69",
+        "GUID:51cfddb4913a31b4e9e60872f24fc0a1",
+        "GUID:d1a8dca8747f4e5cb8228d104f188ae4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

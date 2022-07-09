@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c28b1c289d94a1bbdd4bba0becd79c0, type: 3}
+  m_Name: Question9
+  m_EditorClassIdentifier: 
+  _tileChilds: 2
+  _leftChild: {fileID: 0}
+  _topChild: {fileID: 11400000, guid: 7e004b0326c79494c87c39e04c28e508, type: 2}
+  _rightChild: {fileID: 0}
+  _bottomChild: {fileID: 0}
+  _questionId: SocietyQuestion9
+  _questionCategoryAsset: {fileID: 11400000, guid: ce5ad584dcc123d458dfd613b638afb1, type: 2}
+  _questionInfo:
+    _questionSprite: {fileID: 21300000, guid: 690cd57aa39d6864f95538de54a3f9aa, type: 3}
+    _question: "\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u043D\u0430 \u0437\u0435\u043C\u043B\u0435
+      \u043E\u043A\u0435\u0430\u043D\u043E\u0432?"
+    _answers:
+    - _answerText: 2
+      _isCorrectAnswer: 0
+    - _answerText: 3
+      _isCorrectAnswer: 0
+    - _answerText: 5
+      _isCorrectAnswer: 1
+    - _answerText: 6
+      _isCorrectAnswer: 0

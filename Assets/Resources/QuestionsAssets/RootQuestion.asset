@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c28b1c289d94a1bbdd4bba0becd79c0, type: 3}
+  m_Name: RootQuestion
+  m_EditorClassIdentifier: 
+  _tileChilds: 2
+  _leftChild: {fileID: 0}
+  _topChild: {fileID: 11400000, guid: c38a249c7341d70429f026dee08d13dd, type: 2}
+  _rightChild: {fileID: 0}
+  _bottomChild: {fileID: 0}
+  _questionId: SportQuestion1
+  _questionCategoryAsset: {fileID: 11400000, guid: 066d06aaf8d65c64889f683012b526c3, type: 2}
+  _questionInfo:
+    _questionSprite: {fileID: 21300000, guid: e03a0c519a1e9574893ec33ea0ea9cd3, type: 3}
+    _question: "\u041D\u0430\u0437\u043E\u0432\u0438\u0442\u0435 \u0441\u0442\u0440\u0430\u043D\u0443
+      - \u0440\u043E\u0434\u0438\u043D\u0443 \u041E\u043B\u0438\u043C\u043F\u0438\u0439\u0441\u043A\u0438\u0445
+      \u0438\u0433\u0440?"
+    _answers:
+    - _answerText: "\u0420\u0438\u043C"
+      _isCorrectAnswer: 0
+    - _answerText: "\u0418\u0442\u0430\u043B\u0438\u044F"
+      _isCorrectAnswer: 0
+    - _answerText: "\u0413\u0440\u0435\u0446\u0438\u044F"
+      _isCorrectAnswer: 1
+    - _answerText: "\u041F\u0435\u0440\u0441\u0438\u0434\u0441\u043A\u0430\u044F
+        \u0438\u043C\u043F\u0435\u0440\u0438\u044F"
+      _isCorrectAnswer: 0

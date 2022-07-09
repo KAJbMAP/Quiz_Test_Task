@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c28b1c289d94a1bbdd4bba0becd79c0, type: 3}
+  m_Name: Question11
+  m_EditorClassIdentifier: 
+  _tileChilds: 0
+  _leftChild: {fileID: 0}
+  _topChild: {fileID: 0}
+  _rightChild: {fileID: 0}
+  _bottomChild: {fileID: 0}
+  _questionId: SocietyQuestion11
+  _questionCategoryAsset: {fileID: 11400000, guid: fdfcfeb09496a8248866fd1c84fd429c, type: 2}
+  _questionInfo:
+    _questionSprite: {fileID: 21300000, guid: 80fce69d258385c4dae867461be59540, type: 3}
+    _question: "\u041A\u0442\u043E \u0432 \u043A\u0438\u043D\u043E \u0441\u0447\u0438\u0442\u0430\u0435\u0442\u0441\u044F
+      \xAB\u0430\u0432\u0442\u043E\u0440\u043E\u043C\xBB \u0444\u0438\u043B\u044C\u043C\u0430?"
+    _answers:
+    - _answerText: "\u0420\u0435\u043A\u0432\u0438\u0437\u0438\u0442\u043E\u0440"
+      _isCorrectAnswer: 0
+    - _answerText: "\u0410\u043A\u0442\u0451\u0440"
+      _isCorrectAnswer: 0
+    - _answerText: "\u041E\u043F\u0435\u0440\u0430\u0442\u043E\u0440"
+      _isCorrectAnswer: 0
+    - _answerText: "\u0421\u0446\u0435\u043D\u0430\u0440\u0438\u0441\u0442"
+      _isCorrectAnswer: 0
+    - _answerText: "\u0420\u0435\u0436\u0438\u0441\u0441\u0451\u0440"
+      _isCorrectAnswer: 1
