@@ -20,6 +20,7 @@ namespace Presenters
             _screenFaderView = screenFaderView;
             _screenPresenters = screenPresenters.ToDictionary(presenter => presenter.QuizScreen, presenter => presenter);
             _screenSystem.ScreenChanged += ScreenSystemOnScreenChanged;
+            PresentScreen(_screenSystem.CurrentQuizScreen);
         }
 
         public void Dispose()
@@ -29,13 +30,15 @@ namespace Presenters
 
         private void ScreenSystemOnScreenChanged(QuizScreen screen)
         {
-            _screenFaderView.FadeInOut(() =>
-            {
-                foreach (var screenPresenter in _screenPresenters.Values)
-                    screenPresenter.Hide();
-                
-                _screenPresenters[screen].Present();
-            });
+            _screenFaderView.FadeInOut(() =>  PresentScreen(screen));
+        }
+
+        private void PresentScreen(QuizScreen screen)
+        {
+            foreach (var screenPresenter in _screenPresenters.Values)
+                screenPresenter.Hide();
+
+            _screenPresenters[screen].Present();
         }
     }
 }

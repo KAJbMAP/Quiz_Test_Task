@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Enums;
-using Interfaces.Data;
 using Interfaces.Model.Systems;
 using Interfaces.Presenters;
 using Interfaces.View;
@@ -14,8 +13,7 @@ namespace Presenters
     {
         private readonly IQuestionScreenView _questionScreenView;
         private readonly IAnswerValidationSystem _answerValidationSystem; 
-        private readonly IScreenSystem _screenSystem; 
-        private readonly IScreenSystem screenSystem;
+        private readonly IScreenSystem _screenSystem;
         private readonly IAnswerButtonPoolAdapter _answerButtonPoolAdapter;
         private readonly List<IAnswerButton> _answerButtons;
         public QuizScreen QuizScreen => QuizScreen.QuestionScreen;
@@ -31,13 +29,16 @@ namespace Presenters
 
         public void Present()
         {
-            _questionScreenView.QuestionImage.sprite = _answerValidationSystem.CurrentQuestion.QuestionInfo.QuestionSprite;
-            _questionScreenView.QuestionText.text = _answerValidationSystem.CurrentQuestion.QuestionInfo.Question;
-            foreach (var answers in _answerValidationSystem.CurrentQuestion.QuestionInfo.Answers)
+            if (_answerValidationSystem.CurrentQuestion != null)
             {
-                var answerButton = _answerButtonPoolAdapter.Spawn(_questionScreenView.AnswersContainer, answers);
-                answerButton.Clicked += OnAnswerButtonClicked;
-                _answerButtons.Add(answerButton);
+                _questionScreenView.QuestionImage.sprite = _answerValidationSystem.CurrentQuestion.QuestionInfo.QuestionSprite;
+                _questionScreenView.QuestionText.text = _answerValidationSystem.CurrentQuestion.QuestionInfo.Question;
+                foreach (var answers in _answerValidationSystem.CurrentQuestion.QuestionInfo.Answers)
+                {
+                    var answerButton = _answerButtonPoolAdapter.Spawn(_questionScreenView.AnswersContainer, answers);
+                    answerButton.Clicked += OnAnswerButtonClicked;
+                    _answerButtons.Add(answerButton);
+                }
             }
             _questionScreenView.Show();
         }
@@ -58,8 +59,8 @@ namespace Presenters
             if (isCorrectAnswer) answerButton.MarkAsCorrectAnswer();
             else answerButton.MarkAsIncorrectAnswer();
             
-            foreach (var _answerButton in _answerButtons)
-                _answerButton.Clicked -= OnAnswerButtonClicked;
+            foreach (var button in _answerButtons)
+                button.Clicked -= OnAnswerButtonClicked;
             
             await Task.Delay(TimeSpan.FromSeconds(2));
             

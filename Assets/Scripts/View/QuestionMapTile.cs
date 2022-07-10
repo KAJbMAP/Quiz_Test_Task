@@ -14,8 +14,9 @@ namespace View
     [RequireComponent(typeof(RectTransform))]
     public class QuestionMapTile : MonoBehaviour, IQuestionMapTile, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        private const float ActiveTileHoverScale = 1.2f;
-        private const float InactiveTileHoverScale = 1.1f;
+        private const float ActiveNormalScale = 1.1f;
+        private const float ActiveTileHoverScale = 1.18f;
+        private const float InactiveTileHoverScale = 1.05f;
 
         [Header("Lines")] 
         [SerializeField] private RectTransform _leftLineRect;
@@ -61,38 +62,26 @@ namespace View
         
         public void MarkAsAnsweredCorrect()
         {
-            _isActive = false;
-            _tileBackgroundIcon.enabled = false;
-            _categoryIcon.enabled = false;
-            _answeredTileIcon.enabled = true;
-            _answeredTileIcon.color = _correctAnsweredTileColor;
+            SetAnsweredCorrectState(true);
+            SetInteractableState(false);
         }
 
         public void MarkAsAnsweredIncorrect()
         {
-            _isActive = false;
-            _tileBackgroundIcon.enabled = false;
-            _categoryIcon.enabled = false;
-            _answeredTileIcon.enabled = true;
-            _answeredTileIcon.color = _incorrectAnsweredTileColor;
+            SetAnsweredCorrectState(false);
+            SetInteractableState(false);
         }
 
         public void MarkAsActive()
         {
-            _isActive = true;
-            _tileBackgroundIcon.enabled = true;
-            _categoryIcon.enabled = true;
-            _categoryIcon.color = _activeCategoryColor;
-            _answeredTileIcon.enabled = false;
+            MarkAsIncomplete();
+            SetInteractableState(true);
         }
 
         public void MarkAsInactive()
         {
-            _isActive = false;
-            _tileBackgroundIcon.enabled = true;
-            _categoryIcon.enabled = true;
-            _categoryIcon.color = _inactiveCategoryColor;
-            _answeredTileIcon.enabled = false;
+            MarkAsIncomplete();
+            SetInteractableState(false);
         }
 
         public void SetNeighboursLines(ITileChildsInfo tileChildsInfo)
@@ -124,7 +113,30 @@ namespace View
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            transform.DOScale(Vector3.one, 0.15f);
+            var normalScale = _isActive ? Vector3.one * ActiveNormalScale : Vector3.one;
+            transform.DOScale(normalScale, 0.15f);
+        }
+
+        private void SetInteractableState(bool isInteractable)
+        {
+            _isActive = isInteractable;
+            transform.localScale = isInteractable ? Vector3.one * ActiveNormalScale : Vector3.one;
+            _categoryIcon.color = isInteractable ? _activeCategoryColor : _inactiveCategoryColor;
+        }
+
+        private void SetAnsweredCorrectState(bool isAnsweredCorrect)
+        {
+            _tileBackgroundIcon.enabled = false;
+            _categoryIcon.enabled = false;
+            _answeredTileIcon.enabled = true;
+            _answeredTileIcon.color = isAnsweredCorrect ? _correctAnsweredTileColor : _incorrectAnsweredTileColor;
+        }
+
+        private void MarkAsIncomplete()
+        {
+            _tileBackgroundIcon.enabled = true;
+            _categoryIcon.enabled = true;
+            _answeredTileIcon.enabled = false;
         }
     }   
 }
